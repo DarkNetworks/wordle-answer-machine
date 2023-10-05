@@ -1,0 +1,31 @@
+body {
+    background-color: #111827;
+    overflow: hidden;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    padding: 20px;
+    color: #fff;
+}
+.main {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: grid;
+}
+h2 {
+    font-size: 32px;
+}
+h3 {
+    font-size: 16px;
+}
+#answer {
+    font-family: "Open Sans", sans-serif;
+}
+.bottom {
+    position:absolute;
+    width:100%;
+    bottom:0;
+    text-align:center;
+    color: #777;
+    font-style: italic;
+}
