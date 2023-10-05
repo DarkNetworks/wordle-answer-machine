@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Flowbite CSS and JavaScript -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
+	<!-- Other Head Elements -->
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="icon" href="favicon.png">
+	<title>Wordle Answer Machine</title>
+</head>
+
+<body>
+	<div class="main">
+		<br>
+		<h2>Wordle Answer Machine</h2>
+		<h3 style="color: #666;">Get Wordle answers from any date!</h3>
+		<br>
+		<div class="relative max-w-sm">
+			<div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+				<svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+					<path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" /> </svg>
+			</div>
+			<input datepicker datepicker-format="yyyy-mm-dd" id="date" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date"> </div>
+		<br> <span id="answer">Answer appears here..</span>
+		<h3 class="bottom">2023 Dark Networks.</h3> </div>
+	<script>
+	const dateInput = document.getElementById('date');
+	const answer = document.getElementById('answer');
+
+	function update(date) {
+		fetch(`https://neal.fun/api/password-game/wordle?date=${date}`).then(r => r.json()).then(d => answer.innerText = d.answer.toUpperCase());
+	}
+	dateInput.addEventListener('changeDate', (e) => {
+		update(e.target.value)
+	});
+	// Set Dark Theme :3
+	document.documentElement.classList.add('dark');
+	</script>
+</body>
+
+</html>
